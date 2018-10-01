@@ -1,0 +1,216 @@
+body {
+    background-image: linear-gradient(to bottom right, pink, white);
+    background-size: 7x00vw;
+    background-repeat: repeat;
+    font-family: 'PT Sans Narrow', sans-serif;
+}
+header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+h1 {
+    font-size: 5vw;
+    color:black;
+     text-shadow: 0 1px 0 #ccc;
+    letter-spacing: 0.5vw;
+}
+/* button */
+#submit {
+    text-align: center;
+    width: 9vw;
+    font-family: 'Fjalla One', sans-serif;
+    margin: 1.2vw;
+    padding: 1vw;
+    font-size: 1.5vw;
+    color: rgb(255, 255, 255);
+    visibility: initial;
+}
+#submit {
+    --borderWidth: 3px;
+    background: rgba(29, 31, 32, 0.7);
+    position: relative;
+    border-radius: var(--borderWidth);
+}
+#submit:hover {
+    transition: 1s;
+    background: rgba(255, 255, 255, 0.5);
+}
+#submit:active {
+    background: rgba(255, 255, 255, 0.80);
+}
+#submit:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+}
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* end of button */
+main {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+#apiContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2vw;
+    width: 70vw;
+    height: 20vw;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid black;
+    border-radius: 20px;
+}
+#brochureContainer {
+    display: none;
+    flex-direction: row;
+    justify-content: center;
+    padding: 2vw;
+    width: 70vw;
+    height: 20vw;
+    background-color: rgba(255, 255, 255, 0.25);
+    border: 1px solid black;
+    border-radius: 20px;
+}
+p {
+    font-family: 'Titillium Web', sans-serif;
+}
+.api {
+    overflow: scroll;
+    font-size: 1.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2vw;
+    padding: 1.5vw;
+    padding-bottom: 3vw;
+    width: 30vw;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: 0.7s;
+    border-radius: 20px;
+}
+.brochure {
+    overflow: scroll;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 1.2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 2vw;
+    padding: 1.5vw;
+    padding-bottom: 3vw;
+    width: 60vw;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: 0.7s;
+    border-radius: 20px;
+}
+.author {
+    white-space: nowrap;
+    font-size: 0.9vw;
+    align-self: flex-end;
+}
+.vote {
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+}
+.fa {
+    color: white;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s;
+}
+.fa:hover {
+    color: darkblue;
+    transition: 0.3s;
+}
+.fa-thumbs-down {
+    color: red;
+    transition: 0.3s;
+}
+
+/* -------------Menu Stuff from CodePen--------------- */
+#toggle {
+    display: block;
+    width: 28px;
+    height: 30px;
+    margin: 30px auto 10px;
+}
+
+#toggle span:after,
+#toggle span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -9px;
+}
+#toggle span:after{
+    top: 9px;
+}
+#toggle span {
+    position: relative;
+    display: block;
+}
+
+#toggle span,
+#toggle span:after,
+#toggle span:before {
+    width: 100%;
+    height: 5px;
+    background-color: white;
+    transition: all 0.3s;
+    backface-visibility: hidden;
+    border-radius: 2px;
+}
+
+  /* on activation */
+#toggle.on span {
+    background-color: transparent;
+}
+#toggle.on span:before {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+#toggle.on span:after {
+    transform: rotate(-45deg) translate(7px, -8px);
+}
+#toggle.on + #menu {
+    opacity: 1;
+    visibility: visible;
+}
+#menu {
+    position: relative;
+    color: #999;
+    width: 200px;
+    padding: 10px;
+    margin: auto;
+    font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+    text-align: center;
+    border-radius: 4px;
+    background: white;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .4s;
+}
